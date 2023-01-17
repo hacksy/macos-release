@@ -22,13 +22,17 @@ const nameMap = new Map([
 	[5, ['Puma', '10.1']],
 ]);
 
-export default function macosRelease(release) {
+const macosRelease = release => {
 	release = Number((release || os.release()).split('.')[0]);
 
-	const [name, version] = nameMap.get(release) || ['Unknown', ''];
+	const [name, version] = nameMap.get(release);
 
 	return {
 		name,
-		version,
+		version
 	};
-}
+};
+
+module.exports = macosRelease;
+// TODO: remove this in the next major version
+module.exports.default = macosRelease;
