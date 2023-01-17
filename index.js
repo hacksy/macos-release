@@ -1,4 +1,5 @@
-import os from 'node:os';
+'use strict';
+const os = require('os');
 
 const nameMap = new Map([
 	[22, ['Ventura', '13']],
